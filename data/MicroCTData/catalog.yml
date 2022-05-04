@@ -1,0 +1,34 @@
+metadata:
+  version: 1
+  
+sources:
+  information:
+    description: metadata for the SLF database of chord length distribution
+    driver: csv
+    args:
+      urlpath: '{{ CATALOG_DIR }}/metadata-list-henning.csv'
+      csv_kwargs:
+        delimiter: '\t'
+        dtype:
+          time_in_h: float
+ 
+  chords:
+    description: SLF database with chord length distribution
+    driver: csv
+    args:
+      urlpath: '{{ CATALOG_DIR }}/ChordLengthDistribution/{site}_chords.dat'
+      csv_kwargs:
+        comment: '#'
+        delimiter: ' '
+        names: ['i', 'l_ice', 'l_ice_x', 'l_ice_y', 'l_ice_z', 'l_pore', 'l_pore_x', 'l_pore_y', 'l_pore_z']
+
+  ice_vol_frac:
+    description: ice_vol_frac of SLF database
+    driver: csv
+    args:
+      urlpath: '{{ CATALOG_DIR }}/ChordLengthDistribution/ice_vol_frac.dat'
+      csv_kwargs:
+        delimiter: ' '
+        sample: 100
+        dtype:
+          site: string

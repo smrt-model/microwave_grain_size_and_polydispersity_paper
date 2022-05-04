@@ -1,0 +1,19 @@
+metadata:
+  version: 1
+  
+sources:
+  sites_with_tbs:
+    description: A database of experimental sites with coordinates, mean temperature and AMSR2 brightness temperatures.
+    driver: csv
+    args:
+      urlpath: '{{ CATALOG_DIR }}/TB.csv'
+      csv_kwargs:
+          skiprows: 1
+      
+  profiles:
+    description: density and SSA profiles for each site
+    driver: csv
+    args: # passed to the open() method
+      urlpath: '{{ CATALOG_DIR }}/profiles/{site}.csv'
+      csv_kwargs:
+          delimiter: ' '
