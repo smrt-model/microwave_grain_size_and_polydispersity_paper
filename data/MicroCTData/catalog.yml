@@ -6,7 +6,7 @@ sources:
     description: metadata for the SLF database of chord length distribution
     driver: csv
     args:
-      urlpath: '{{ CATALOG_DIR }}/metadata-list-henning.csv'
+      urlpath: '{{ CATALOG_DIR }}/metadata-samples.csv'
       csv_kwargs:
         delimiter: '\t'
         dtype:
@@ -16,7 +16,7 @@ sources:
     description: SLF database with chord length distribution
     driver: csv
     args:
-      urlpath: '{{ CATALOG_DIR }}/ChordLengthDistribution/{site}_chords.dat'
+      urlpath: '{{ CATALOG_DIR }}/{site}_chords.dat'
       csv_kwargs:
         comment: '#'
         delimiter: ' '
@@ -26,7 +26,7 @@ sources:
     description: ice_vol_frac of SLF database
     driver: csv
     args:
-      urlpath: '{{ CATALOG_DIR }}/ChordLengthDistribution/ice_vol_frac.dat'
+      urlpath: '{{ CATALOG_DIR }}/ice_vol_frac.dat'
       csv_kwargs:
         delimiter: ' '
         sample: 100
